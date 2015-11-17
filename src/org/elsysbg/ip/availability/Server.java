@@ -47,10 +47,8 @@ public class Server {
 				try {
 					s = serverSocket.accept();
 					int i = clients.size();
-					//System.out.println(clients.size());
 					clients.add(new Client(s));
 					newClients.add(i);
-					//System.out.println(clients.size());
 				}catch(IOException e){
 					System.out.println("Server halted!");
 				}
@@ -61,16 +59,12 @@ public class Server {
 	public static void startServer(int serverPort) throws IOException {
 		port = serverPort;
 		serverSocket = new ServerSocket(port);
-		// out = 	new PrintStream(socket.getOutputStream());
-		//scanner = new Scanner(socket.getInputStream());
 	}
 
 	public static  String getMessage(int clientID) throws IOException{
 			Scanner scanner = clients.get(clientID).getIn();
 		if(scanner.hasNextLine()){
 			String line = scanner.nextLine();
-			//System.out.println(Server.clients.get(clientID).getSock().isClosed());
-			//System.out.println(Server.clients.get(clientID).getSock().isClosed());
 			return line;
 		}else{
 			return null;
@@ -86,7 +80,6 @@ public class Server {
 	}
 
 	public static  PrintStream sendMessage(int clientID) throws IOException{
-		//System.out.println(clients.size());
 		if(!clients.get(clientID).getSock().isClosed()){
 			return new PrintStream(clients.get(clientID).getOut());
 		}else{
@@ -96,10 +89,8 @@ public class Server {
 
 	public static  int nextNewClient(){
 		int i;
-		//System.out.println(newClients.size());
 		if (newClients.size() > 0){
 			i = newClients.get(0);
-			//System.out.println(newClients.get(0));
 			newClients.remove(0);
 			return i;
 		}

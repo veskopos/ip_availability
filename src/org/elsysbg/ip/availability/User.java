@@ -19,7 +19,6 @@ public class User extends Thread {
 		while(shutdown == false){
 			try{
 				receivedMessages.add(Server.getMessage(id));
-				//System.out.println(receivedMessages.size());
 				}catch(IOException e){
 				}catch(NullPointerException e){
 				}

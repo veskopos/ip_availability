@@ -59,7 +59,6 @@ import java.util.ListIterator;
 				}
 				invited.add(split[0]);
 				NameToCount.put(split[0], logCounter);
-				//Dates.put(split[0], value)
 				Interval interval = new Interval();
 				interval.from = new Date();
 				if(Dates.containsKey(split[0])){
@@ -94,9 +93,7 @@ import java.util.ListIterator;
 			for(int i: disconnected){
 				if(NameToID.containsValue(i)){
 					String s = null;
-					//Iterator it = NameToID.entrySet().iterator();
 					for (Map.Entry<String, Integer> entry : NameToID.entrySet()){
-						// System.out.println(entry.getKey() + "/" + entry.getValue());
 						if(entry.getValue()==i){
 							s = entry.getKey();
 						}
